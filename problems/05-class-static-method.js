@@ -22,47 +22,58 @@ Node.js with the examples below. Use the command:
 
 Example:
 
-const instance1 = new MMS('555-111-1111', '555-222-2222', 
-  'This is a test message.', 'image/gif');
-const instance2 = new MMS('555-111-1111', '555-222-2222', 
-  'This is a second test message.', 'image/gif');
-const instance3 = new MMS('555-111-1111', '555-222-2222', 
-  'This is a third test message.', 'image/jpeg');
-
-const messages = [instance1, instance2, instance3];
-const filteredMessages = MMS.getMessagesByMIMEType(messages, 'image/gif');
-
-console.log(filteredMessages);
 
 // Should print...
 
 // [
-//   MMS {
-//     recipient: '555-111-1111',
-//     sender: '555-222-2222',
-//     text: 'This is a test message.',
-//     mimeType: 'image/gif'
-//   },
-//   MMS {
-//     recipient: '555-111-1111',
-//     sender: '555-222-2222',
-//     text: 'This is a second test message.',
-//     mimeType: 'image/gif'
-//   }
-// ]
+    //   MMS {
+        //     recipient: '555-111-1111',
+        //     sender: '555-222-2222',
+        //     text: 'This is a test message.',
+        //     mimeType: 'image/gif'
+        //   },
+        //   MMS {
+            //     recipient: '555-111-1111',
+            //     sender: '555-222-2222',
+            //     text: 'This is a second test message.',
+            //     mimeType: 'image/gif'
+            //   }
+            // ]
 
-***********************************************************************/
+            ***********************************************************************/
 
-class MMS {
-  constructor(recipient, sender, text, mimeType) {
-    this.recipient = recipient;
-    this.sender = sender;
-    this.text = text;
-    this.mimeType = mimeType;
-  }
-}
+           class MMS {
+               constructor(recipient, sender, text, mimeType) {
+                   this.recipient = recipient;
+                   this.sender = sender;
+                   this.text = text;
+                   this.mimeType = mimeType;
+                }
+                static getMessagesByMIMEType(messages, mimeType) {
+                    const totalInstances = [];
+                    for (let i = 0; i < messages.length; i++){
+                        let instance = messages[i];
+                        // console.log(instance);
+                        if (instance.mimeType.includes(mimeType)){
+                            totalInstances.push(instance);
+                        }
+                    }
+                    return totalInstances;
+                }
+            }
+            const instance1 = new MMS('555-111-1111', '555-222-2222',
+              'This is a test message.', 'image/gif');
+            const instance2 = new MMS('555-111-1111', '555-222-2222',
+              'This is a second test message.', 'image/gif');
+            const instance3 = new MMS('555-111-1111', '555-222-2222',
+              'This is a third test message.', 'image/jpeg');
 
-/**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
+            const messages = [instance1, instance2, instance3];
+            const filteredMessages = MMS.getMessagesByMIMEType(messages, 'image/gif');
+
+            console.log(filteredMessages);
+
+            /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {
   module.exports = MMS;
 } catch {
