@@ -3,7 +3,7 @@
 
 Let's create an ES2015 class to represent SMS text messages!
 
-Define an ES2015 class named `SMS` containing a constructor method that 
+Define an ES2015 class named `SMS` containing a constructor method that
 accepts three arguments that initialize the following properties:
 
 * recipient - the recipient of the text message
@@ -14,8 +14,16 @@ In addition to Mocha, we recommend that you test your code manually using
 Node.js with the examples below. Use the command:
 
 `node problems/03-class.js`
+***********************************************************************/
+class SMS {
+  constructor(recipient, sender, text) {
+    this.recipient = recipient;
+    this.sender = sender;
+    this.text = text;
+  }
+}
 
-Examples:
+
 
 const message1 = new SMS('555-111-1111', '555-222-2222', 'Test message one');
 console.log(message1);
@@ -38,10 +46,6 @@ console.log(message2);
 //   sender: '555-444-4444',
 //   text: 'Test message two'
 // }
-
-***********************************************************************/
-
-
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {
