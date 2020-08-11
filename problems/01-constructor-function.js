@@ -1,6 +1,5 @@
 
 /***********************************************************************
-
 Let's create a constructor function to represent SMS text messages!
 
 Define a constructor function named `SMS` that accepts three arguments that
@@ -14,8 +13,16 @@ In addition to Mocha, we recommend that you test your code manually using
 Node.js with the examples below. Use the command:
 
 `node problems/01-constructor-function.js`
+***********************************************************************/
 
-Examples:
+function SMS(recipient, sender, text) {
+  this.recipient = recipient;
+  this.sender = sender;
+  this.text = text;
+}
+
+
+
 
 const message1 = new SMS('555-111-1111', '555-222-2222', 'Test message one');
 console.log(message1);
@@ -38,10 +45,6 @@ console.log(message2);
 //   sender: '555-444-4444',
 //   text: 'Test message two'
 // }
-
-***********************************************************************/
-
-
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {
