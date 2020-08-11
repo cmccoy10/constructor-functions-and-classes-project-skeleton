@@ -20,10 +20,27 @@ In addition to Mocha, we recommend that you test your code manually using
 Node.js with the examples below. Use the command:
 
 `node problems/07-class-inheritance.js`
+***********************************************************************/
 
-Examples:
+class Message {
+  constructor(recipient, sender, text) {
+    this.recipient = recipient;
+    this.sender = sender;
+    this.text = text;
+  }
+}
 
-const message1 = new Email('sally@smith.com', 'john@smith.com', 
+class Email extends Message{
+  constructor(recipient, sender, text, subject) {
+    super(recipient, sender);
+    this.text = subject
+    this.subject = text;
+
+  }
+}
+
+
+const message1 = new Email('sally@smith.com', 'john@smith.com',
   'Test Message One', 'This is a test message.');
 console.log(message1);
 
@@ -36,7 +53,7 @@ console.log(message1);
 //   subject: 'Test Message One'
 // }
 
-const message2 = new Email('sally@smith.com', 'john@smith.com', 
+const message2 = new Email('sally@smith.com', 'john@smith.com',
   'Test Message Two', 'This is a test message.');
 console.log(message2);
 
@@ -49,17 +66,6 @@ console.log(message2);
 //   subject: 'Test Message Two'
 // }
 
-***********************************************************************/
-
-class Message {
-  constructor(recipient, sender, text) {
-    this.recipient = recipient;
-    this.sender = sender;
-    this.text = text;
-  }
-}
-
-class Email {}
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {
